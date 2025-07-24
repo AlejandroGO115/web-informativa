@@ -8,16 +8,12 @@
       {
         "appID": "Q78S6VPV62.com.soriana.soritest",
         "paths": [
-          "NOT /iniciar-sesion*",
-          "NOT */iniciar-sesion*",
           "*"
         ]
       },
       {
         "appID": "VC5VYPCSV3.com.soriana.sorianaapp",
         "paths": [
-          "NOT /iniciar-sesion*",
-          "NOT */iniciar-sesion*",
           "*"
         ]
       }
