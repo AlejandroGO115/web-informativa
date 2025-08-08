@@ -10,6 +10,8 @@
         "paths": [
           "NOT /iniciar-sesion*",
           "NOT */iniciar-sesion*",
+          "NOT /configurar-contrasena*",
+          "NOT */configurar-contrasena*",
           "*"
         ]
       },
@@ -18,6 +20,8 @@
         "paths": [
           "NOT /iniciar-sesion*",
           "NOT */iniciar-sesion*",
+          "NOT /configurar-contrasena*",
+          "NOT */configurar-contrasena*",
           "*"
         ]
       }
