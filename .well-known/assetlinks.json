@@ -1,0 +1,18 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.soriana.appsoriana",
+      "sha256_cert_fingerprints": [
+        "45:41:F6:B2:C8:70:A3:83:9C:41:0F:AA:9D:B3:4B:E7:94:29:B9:AC:B3:68:9C:98:0B:34:BC:67:C3:BC:18:BB",
+        "EB:E3:54:19:B3:CD:3D:BF:F7:5B:2F:2A:0B:DE:0D:FA:30:51:AB:BF:43:DA:4C:9F:EA:07:1D:36:F8:A8:3A:D7",
+        "73:8D:1E:B5:56:B8:DA:A5:84:B8:5E:41:32:58:7A:19:D2:99:88:4E:CB:4E:98:63:49:22:92:E0:8B:A0:09:A9",
+        "55:4B:1E:51:BE:53:97:A3:08:03:AE:61:52:05:F5:83:81:34:D9:75:F9:B2:58:D0:AB:EA:2C:FF:92:FE:74:C4",
+        "91:4A:D8:16:D1:28:6E:BA:B1:BD:46:97:07:BD:05:A9:9E:78:5B:6C:22:56:03:66:BF:E0:43:7A:00:E3:6D:6D"
+      ]
+    }
+  }
+]
