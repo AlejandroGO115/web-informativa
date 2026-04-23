@@ -86,6 +86,15 @@ footer {
     max-width: 360px;
     margin: 0 auto 1.8rem;
     cursor: text;
+    transition: transform 0.2s ease;
+}
+
+.otp-input-wrapper:has(.otp-hidden-input:focus) {
+    transform: scale(1.02);
+}
+
+.otp-input-wrapper.focused {
+    padding: 0.5rem 0;
 }
 
 .otp-hidden-input {
@@ -112,17 +121,22 @@ footer {
     justify-content: center;
     min-height: 72px;
     border-radius: 20px;
-    border: 1px solid #d1d5db;
+    border: 2px solid #d1d5db;
     background: #f9fafb;
     font-size: 1.6rem;
     font-weight: 600;
     color: #111827;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .otp-digit.filled {
     border-color: #2563eb;
     background: #eff6ff;
+}
+
+.otp-input-wrapper:has(.otp-hidden-input:focus) .otp-digit {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .otp-submit {
