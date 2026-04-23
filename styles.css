@@ -118,6 +118,7 @@ footer {
     border: none;
     background: transparent;
     caret-color: transparent;
+    font-size: 16px;
 }
 
 .otp-boxes {
