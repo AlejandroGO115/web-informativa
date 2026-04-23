@@ -1,0 +1,14 @@
+name: Fix Pages Deployment
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Concurrency control activated"
