@@ -108,7 +108,13 @@
             const card = document.querySelector('.otp-card');
             card.style.animation = 'fadeOut 0.3s ease forwards';
             setTimeout(() => {
-                window.history.back();
+                // Send message to native iOS app
+                if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeOTP) {
+                    window.webkit.messageHandlers.closeOTP.postMessage({action: 'close'});
+                } else {
+                    // Fallback if not in WKWebView
+                    window.history.back();
+                }
             }, 300);
         });
     </script>
