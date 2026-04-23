@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar dispositivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="otp-page">
+    <main class="otp-shell">
+        <div class="otp-card">
+            <h1>Confirma tu dispositivo</h1>
+            <p class="otp-instruction">Escribe el código SMS que te enviamos al teléfono con terminación <strong>**89</strong></p>
+
+            <div class="otp-input-wrapper" tabindex="0">
+                <input id="otp-hidden" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="one-time-code" class="otp-hidden-input" aria-label="Código de verificación">
+                <div class="otp-boxes" aria-hidden="true">
+                    <span class="otp-digit"></span>
+                    <span class="otp-digit"></span>
+                    <span class="otp-digit"></span>
+                    <span class="otp-digit"></span>
+                </div>
+            </div>
+
+            <button id="otp-submit" class="otp-submit" disabled>Confirmar</button>
+            <p class="otp-timer"><span id="otp-timer">01:50</span></p>
+        </div>
+    </main>
+
+    <script>
+        const hiddenInput = document.getElementById('otp-hidden');
+        const digitBoxes = Array.from(document.querySelectorAll('.otp-digit'));
+        const confirmButton = document.getElementById('otp-submit');
+        const timerDisplay = document.getElementById('otp-timer');
+        const wrapper = document.querySelector('.otp-input-wrapper');
+
+        function updateDigitBoxes(value) {
+            const digits = value.replace(/\D/g, '').slice(0, 4).split('');
+            digitBoxes.forEach((box, index) => {
+                box.textContent = digits[index] || '';
+                box.classList.toggle('filled', Boolean(digits[index]));
+            });
+            hiddenInput.value = digits.join('');
+            confirmButton.disabled = digits.length !== 4;
+        }
+
+        wrapper.addEventListener('click', () => {
+            hiddenInput.focus();
+        });
+
+        hiddenInput.addEventListener('input', (event) => {
+            updateDigitBoxes(event.target.value);
+        });
+
+        hiddenInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Backspace' && hiddenInput.value.length === 0) {
+                const firstFilledIndex = [...digitBoxes].findIndex(box => box.textContent !== '');
+                if (firstFilledIndex >= 0) {
+                    digitBoxes[firstFilledIndex].textContent = '';
+                    digitBoxes[firstFilledIndex].classList.remove('filled');
+                }
+            }
+        });
+
+        confirmButton.addEventListener('click', () => {
+            const code = hiddenInput.value;
+            if (code.length === 4) {
+                alert(`Código enviado: ${code}`);
+            }
+        });
+
+        let remainingSeconds = 110;
+        function updateTimer() {
+            const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+            const seconds = String(remainingSeconds % 60).padStart(2, '0');
+            timerDisplay.textContent = `${minutes}:${seconds}`;
+            if (remainingSeconds > 0) {
+                remainingSeconds -= 1;
+            }
+        }
+        setInterval(updateTimer, 1000);
+
+        window.addEventListener('load', () => {
+            hiddenInput.focus();
+        });
+    </script>
+</body>
+</html>
